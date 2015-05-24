@@ -1,8 +1,4 @@
-#!/bin/bash -x
-
-USER=${SERVER_USER}
-HOST=${SERVER_HOST}
-MSPASSWD=${PASSWD}
+#!/bin/bash
 
 text=$(ssh ${USER}@${HOST} "docker ps | grep -e docker-mysql")
 arr=(`echo $text`)
@@ -17,7 +13,6 @@ arr=(`echo $text`)
 
 ssh ${USER}@${HOST} "docker exec ${arr[0]} /usr/bin/mysqladmin -u root password \"${MSPASSWD}\""
 ssh ${USER}@${HOST} "docker exec -i ${arr[0]} mysql -u root -p\"${MSPASSWD}\" < /data_mysql/dump.sql"
-
 ssh ${USER}@${HOST} "cd /home/khiraiwa/compose-myserver;docker-compose stop;docker-compose start"
 
 
