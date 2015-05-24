@@ -6,4 +6,5 @@ machine:
 
 test:
   override:
+    - chmod +x test.sh
     - ./test.sh
