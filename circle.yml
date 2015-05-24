@@ -1,0 +1,9 @@
+machine:
+  timezone:
+    Asia/Tokyo
+  services:
+    - docker
+
+test:
+  override:
+    - ssh khiraiwa@www1205uf.sakura.ne.jp
