@@ -6,4 +6,4 @@ MSPASSWD=${PASSWD}
 
 text=$(ssh ${USER}@${HOST} "docker ps | grep -e docker-mysql")
 arr=(`echo $text`)
-ssh ${USER}@${HOST} "docker exec -it ${arr[0]} /usr/bin/mysqldump -u root -p\"ME09rebR\" -x --all-databases > test2" 
+ssh ${USER}@${HOST} "docker exec ${arr[0]} /usr/bin/mysqldump -u root -p\"ME09rebR\" -x --all-databases > test2" 
