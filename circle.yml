@@ -6,4 +6,4 @@ machine:
 
 test:
   override:
-    - ssh khiraiwa@www1205uf.sakura.ne.jp
+    - ssh khiraiwa@www1205uf.sakura.ne.jp "mysqldump -u root -x --all-databases > dump.sql"
